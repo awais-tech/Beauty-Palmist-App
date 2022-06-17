@@ -112,7 +112,7 @@ export default function PalmistQuiz() {
                         <Text style={{ fontSize: '20px' }}>Combination</Text>
                     </View>
                 </RadioButton.Group>
-                <Button mode='contained' style={{marginTop: '20px'}} onPress={()=>move()}>View Recommendations</Button>
+                <Button mode='contained' style={{marginTop: '20px', backgroundColor: '#FF69B4'}} onPress={()=>move()}>View Recommendations</Button>
             </Card>
         </View>
         </SafeAreaView>

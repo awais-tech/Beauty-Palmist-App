@@ -16,8 +16,8 @@ export default function ClientSignup() {
           <TextInput placeholder='Email' style={styles.Textfields}></TextInput>
           <TextInput placeholder='Password' style={styles.Textfields}></TextInput>
           <TextInput placeholder='Confirm Password' style={styles.Textfields}></TextInput>
-          <Button style={{ marginBottom: '20px' }} mode="contained" onPress={()=>move()}>Signup</Button>
-          <Button style={{ marginBottom: '20px' }} mode="contained">Cancel</Button>
+          <Button style={{ marginBottom: '20px', backgroundColor: '#FF69B4' }} mode="contained" onPress={()=>move()}>Signup</Button>
+          <Button style={{ marginBottom: '20px', backgroundColor: '#FF69B4' }} mode="contained">Cancel</Button>
 
 
         </Card>

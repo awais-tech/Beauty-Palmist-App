@@ -6,7 +6,7 @@ export default function Clientlogin() {
   const navigation = useNavigation();
 
   const move=()=>{
-    navigation.navigate('ServiceSelect')
+    navigation.navigate('Home')
   }
   const moves=()=>{
     navigation.navigate('Choosesignuptype')
@@ -24,7 +24,7 @@ export default function Clientlogin() {
           <Text style={{ fontWeight: 'bold', textAlign: 'center', marginBottom: '20px', fontSize: '20px' }}>Login with email</Text>
           <TextInput placeholder='Email' style={styles.Textfields}></TextInput>
           <TextInput placeholder='Password' style={styles.Textfields}></TextInput>
-          <Button style={{ marginBottom: '20px' }} mode="contained"  onPress={()=>move()}>Login</Button>
+          <Button style={{ marginBottom: '20px', backgroundColor: '#FF69B4' }} mode="contained"  onPress={()=>move()}>Login</Button>
           <Text style={{ textAlign: 'center', marginBottom: '10px' }} >Don't have an account?</Text>
           <Button color='grey' onPress={()=>moves()}>Sign Up</Button>
         </Card>

@@ -13,12 +13,12 @@ export default function ServiceSelect() {
         <Card style={{ padding: '40px', borderRadius: '20px', width: '90%' }}>
           <Text style={{ fontWeight: 'bold', textAlign: 'center', marginBottom: '20px', fontSize: '24px' }}>Services</Text>
           <View style={{display: 'flex', flexDirection: 'row', justifyContent:'center'}}>
-          <Button style={{ marginBottom: '30px', width: '150px', marginRight: '10px' }} mode="contained" onPress={() => move()}>Salon</Button>
-          <Button style={{ marginBottom: '30px', width: '150px' }} mode="contained" onPress={() => move()}>Aesthetics</Button>
+          <Button style={{ marginBottom: '30px', width: '150px', marginRight: '10px', backgroundColor: '#FF69B4' }} mode="contained" onPress={() => move()}>Salon</Button>
+          <Button style={{ marginBottom: '30px', width: '150px', backgroundColor: '#FF69B4' }} mode="contained" onPress={() => move()}>Aesthetics</Button>
           </View>
           <View style={{display: 'flex', flexDirection: 'row', justifyContent:'center'}}>
-          <Button style={{ marginBottom: '30px', width: '150px', marginRight: '10px'}} mode="contained" onPress={() => move()}>Fitness</Button>
-          <Button style={{ marginBottom: '30px', width: '150px' }} mode="contained" onPress={() => move()}>Photography</Button>
+          <Button style={{ marginBottom: '30px', width: '150px', marginRight: '10px', backgroundColor: '#FF69B4'}} mode="contained" onPress={() => move()}>Fitness</Button>
+          <Button style={{ marginBottom: '30px', width: '150px', backgroundColor: '#FF69B4' }} mode="contained" onPress={() => move()}>Photography</Button>
           </View>
 
         </Card>

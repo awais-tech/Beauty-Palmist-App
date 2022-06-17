@@ -21,8 +21,8 @@ export default function ServiceDetailPage() {
                 </Text>
                 <Text style={{ textAlign: 'justify', marginBottom: '10px' }}>
                     Protein Treatment will nourish your hair.Protein treatments, when used in moderation, may provide the strength your hair needs to minimize dryness and damage. However, these treatments should only be used as directed.</Text>
-                    <Button style={{ marginBottom: '20px' }} mode="contained">Book Now! (Calender Method)</Button>
-                    <Button style={{ marginBottom: '20px' }} mode="contained">Book Now! (Manual Input Method)</Button>
+                    <Button style={{ marginBottom: '20px', backgroundColor: '#FF69B4' }} mode="contained">Book Now! (Calender Method)</Button>
+                    <Button style={{ marginBottom: '20px', backgroundColor: '#FF69B4' }} mode="contained">Book Now! (Manual Input Method)</Button>
 
 
             </Card>

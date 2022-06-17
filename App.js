@@ -22,6 +22,7 @@ import QuizCategory from "./QuizCategories";
 import PalmistQuiz from "./QuizQuestionnare";
 import Recommendations from "./PalmistRecommendations";
 import ServiceListings from "./Servicelistings";
+import Home from "./Home";
 const Stack = createNativeStackNavigator();
 
 
@@ -150,6 +151,15 @@ export default function App() {
 
           name="ServiceListings"
           component={ServiceListings}
+
+        />
+        <Stack.Screen
+          screenOptions={{
+            headerShown: false
+          }}
+
+          name="Home"
+          component={Home}
 
         />
 

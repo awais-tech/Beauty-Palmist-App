@@ -14,7 +14,7 @@ export default function BusinessLogin() {
           <Text style={{ fontWeight: 'bold', textAlign: 'center', marginBottom: '20px', fontSize: '24px' }} >Business Login</Text>
           <TextInput placeholder='Username' style={styles.Textfields}></TextInput>
           <TextInput placeholder='Password' style={styles.Textfields}></TextInput>
-          <Button style={{ marginBottom: '20px' }} mode="contained" onPress={()=>move()} >Login</Button>
+          <Button style={{ marginBottom: '20px', backgroundColor: '#FF69B4' }} mode="contained" onPress={()=>move()} >Login</Button>
 
         </Card>
     </View>

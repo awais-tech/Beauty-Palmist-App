@@ -30,7 +30,7 @@ export default function BusinessSignup() {
           </View>
           <TextInput placeholder='Give description about your services, experience and achievements' style={styles.AboutTextfield}></TextInput>
 
-          <Button style={{ marginBottom: '20px' }} mode="contained" onPress={()=>move()}>Signup</Button>
+          <Button style={{ marginBottom: '20px', backgroundColor: '#FF69B4' }} mode="contained" onPress={()=>move()}>Signup</Button>
         </Card>
     </View>
     </SafeAreaView>
