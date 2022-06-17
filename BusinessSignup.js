@@ -1,5 +1,5 @@
 import { Avatar, Button, Card, Checkbox , Paragraph } from 'react-native-paper';
-import { StyleSheet, Text, View, TextInput, Drawer  } from 'react-native';
+import { StyleSheet, Text, View, TextInput, Drawer, SafeAreaView  } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 export default function BusinessSignup() {
@@ -8,6 +8,7 @@ export default function BusinessSignup() {
     navigation.navigate('BusinessLogin')
   }
   return (
+    <SafeAreaView>
     <View style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100%', backgroundColor: '#9c8cbc' }}>
         <Card style={{ padding: '40px', borderRadius: '20px', width: '90%', marginTop: '70px', marginBottom: '70px'}}>
           <Text style={{ fontWeight: 'bold', textAlign: 'center', marginBottom: '20px', fontSize: '24px' }}>Business Signup</Text>
@@ -32,6 +33,7 @@ export default function BusinessSignup() {
           <Button style={{ marginBottom: '20px' }} mode="contained" onPress={()=>move()}>Signup</Button>
         </Card>
     </View>
+    </SafeAreaView>
   );
 }
 

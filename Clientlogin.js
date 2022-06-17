@@ -25,8 +25,8 @@ export default function Clientlogin() {
           <TextInput placeholder='Email' style={styles.Textfields}></TextInput>
           <TextInput placeholder='Password' style={styles.Textfields}></TextInput>
           <Button style={{ marginBottom: '20px' }} mode="contained"  onPress={()=>move()}>Login</Button>
-          <Text style={{ textAlign: 'center', marginBottom: '10px' }} onPress={()=>moves()}>Don't have an account?</Text>
-          <Button color='grey'>Sign Up</Button>
+          <Text style={{ textAlign: 'center', marginBottom: '10px' }} >Don't have an account?</Text>
+          <Button color='grey' onPress={()=>moves()}>Sign Up</Button>
         </Card>
     </View>
   );
