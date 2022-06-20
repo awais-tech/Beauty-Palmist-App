@@ -22,15 +22,14 @@ export default function ServiceList() {
                         <Text style={{ fontSize: '24px', fontWeight: 'bold', backgroundColor: 'white', padding: '10px' }}>Manage Services</Text>
                     </View>
                 </ImageBackground>
-                <View style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', margin: '20px', }}>
                     <Searchbar
                         placeholder="Search Service"
                         onChangeText={onChangeSearch}
                         value={searchQuery}
-                        style={{width: '60%'}}
                     />
-                    <Button mode='contained' style={{backgroundColor: '#FF69B4'}} onPress={()=>serviceformr()}>New Service</Button>
-                </View>
+                    <View style={{alignSelf: 'flex-end'}}>
+                    <Button mode='contained' style={{backgroundColor: '#FF69B4', margin: '30px'}} onPress={()=>serviceformr()}>New Service</Button>
+                    </View>
                 <Card style={{ padding: '40px', borderRadius: '2px', width: '90%', borderColor: '#6804ec', borderWidth: 2, marginBottom: '20px' }}>
                     <View style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
                         <Text style={{ fontSize: '24px', fontWeight: 'bold', fontStyle: 'italic', marginBottom: '20px' }}>Hair Protein Treatment</Text>

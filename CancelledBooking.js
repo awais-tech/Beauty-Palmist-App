@@ -14,7 +14,7 @@ export default function Cancelled() {
     }
     return (
         <SafeAreaView style={{}}>
-            <View style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100%', backgroundColor: '#9c8cbc' }}>
+            <View style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100%', backgroundColor: '#ffe4e4' }}>
                 <Card style={{ padding: '40px', borderRadius: '20px', width: '90%', marginTop: '30px', marginBottom: '30px' }}>
                     <Searchbar
                         placeholder="Search By Booking ID"

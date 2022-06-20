@@ -12,7 +12,7 @@ export default function Chooselogintype() {
     navigation.navigate('BusinessLogin')
   }
   return (
-    <View style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100%', backgroundColor: '#9c8cbc' }}>
+    <View style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100%', backgroundColor: '#ffe4e4' }}>
         <Card style={{ padding: '40px', borderRadius: '20px', width: '90%' }}>
           <Text style={{ fontWeight: 'bold', textAlign: 'center', marginBottom: '30px', fontSize: '24px' }}>Choose Login Type</Text>
           <Button style={{ marginBottom: '30px', backgroundColor: '#FF69B4' }} mode="contained"  onPress={()=>move()}>Client Login</Button>

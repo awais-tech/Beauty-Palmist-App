@@ -15,7 +15,7 @@ export default function ProfileSettings() {
 
     return (
         <SafeAreaView>
-            <View style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100%', backgroundColor: '#9c8cbc' }}>
+            <View style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100%', backgroundColor:'#ffe4e4' }}>
                 <Card style={{ padding: '40px', borderRadius: '20px', width: '90%', marginTop: '70px', marginBottom: '70px' }}>
                     <Text style={{ fontWeight: 'bold', textAlign: 'center', marginBottom: '20px', fontSize: '24px' }}>Profile Settings</Text>
                     <TextInput placeholder='Aestethic SL' style={styles.Textfields}></TextInput>

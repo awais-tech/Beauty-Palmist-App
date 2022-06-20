@@ -13,7 +13,7 @@ export default function QuizCategory() {
 
     const handlePress = () => setExpanded(!expanded);
     return (
-        <View style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100%', backgroundColor: '#9c8cbc' }}>
+        <View style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100%', backgroundColor: '#ffe4e4'}}>
             <Card style={{ padding: '40px', borderRadius: '20px', width: '90%', backgroundColor: '#f8ecec' }}>
                 <List.Section title="Salon Categories" titleStyle={{fontSize: '24px', fontWeight: 'bold'}}>
                     <List.Accordion
