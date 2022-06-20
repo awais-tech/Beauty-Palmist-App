@@ -23,9 +23,9 @@ export default function ProfileSettings() {
                     <TextInput placeholder='Email' style={styles.Textfields}></TextInput>
                     <View>
                         <Card style={{ padding: '40px', borderRadius: '20px', width: '100%', marginBottom: '20px', backgroundColor: '#fffc9c' }}>
-                        <Text style={{fontStyle: 'italic'}}>Current Status: Home Based/Small Business</Text>
+                        <Text style={{fontStyle: 'italic', marginBottom: '10px'}}>Current Status: Home Based/Small Business</Text>
                             <View style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
-                                <Text style={{ fontSize: '20px', fontWeight: 'bold', fontStyle: 'italic' }}>Set Status: Registered</Text>
+                                <Text style={{ fontSize: '16px', fontWeight: 'bold', fontStyle: 'italic' }}>Set Status: Registered</Text>
                                 <Switch value={isSwitchOn} onValueChange={onToggleSwitch} />
                             </View>
                             <Button mode='outlined' style={{marginTop: '20px'}}>Send for approval</Button>

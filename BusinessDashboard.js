@@ -10,6 +10,9 @@ export default function BusinessDashboard() {
     const moves = () => {
         navigation.navigate('Profile Settings')
     }
+    const movess = () => {
+        navigation.navigate('Bookings')
+    }
     return (
         <SafeAreaView style={{height: '100%'}}>
             <View style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100%', backgroundColor: '#9c8cbc', }}>
@@ -17,7 +20,7 @@ export default function BusinessDashboard() {
                     <View style={{ display: 'flex', flexDirection: 'column' }}>
                         <Text style={{ fontWeight: 'bold', fontSize: '24px', marginBottom: '10px' }}>Bookings</Text>
                         <Text style={{ fontWeight: 'bold', fontSize: '16px', marginBottom: '10px' }}>View Booking Schedules and Requests</Text>
-                        <Button mode='contained' style={{backgroundColor: '#FF69B4'}}>Manage</Button>
+                        <Button mode='contained' style={{backgroundColor: '#FF69B4'}} onPress={()=>movess()}>Manage</Button>
                     </View>
                 </Card>
                 <Card style={{ padding: '40px', borderRadius: '20px', width: '90%', marginBottom: '30px' }}>

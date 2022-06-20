@@ -27,6 +27,10 @@ import BusinessDashboard from "./BusinessDashboard";
 import ServiceList from "./ServicesList";
 import Serviceform from "./Serviceform";
 import ProfileSettings from "./ProfileSettings";
+import Choosebookingtype from "./Booking";
+import Upcoming from "./UpcomingBookings";
+import History from "./History";
+import Cancelled from "./CancelledBooking";
 const Stack = createNativeStackNavigator();
 
 
@@ -200,6 +204,43 @@ export default function App() {
 
           name="Profile Settings"
           component={ProfileSettings}
+
+        />
+
+        <Stack.Screen
+          screenOptions={{
+            headerShown: false
+          }}
+
+          name="Bookings"
+          component={Choosebookingtype}
+
+        />
+        <Stack.Screen
+          screenOptions={{
+            headerShown: false
+          }}
+
+          name="Upcoming Bookings"
+          component={Upcoming}
+
+        />
+        <Stack.Screen
+          screenOptions={{
+            headerShown: false
+          }}
+
+          name="History"
+          component={History}
+
+        />
+        <Stack.Screen
+          screenOptions={{
+            headerShown: false
+          }}
+
+          name="Cancelled Bookings"
+          component={Cancelled}
 
         />
 
