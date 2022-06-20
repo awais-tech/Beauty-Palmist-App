@@ -6,7 +6,7 @@ export default function BusinessLogin() {
   const navigation = useNavigation();
 
   const move=()=>{
-    navigation.navigate('ServiceSelect')
+    navigation.navigate('Business Dashboard')
   }
   return (
     <View style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100%', backgroundColor: '#9c8cbc' }}>

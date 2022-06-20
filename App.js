@@ -23,6 +23,10 @@ import PalmistQuiz from "./QuizQuestionnare";
 import Recommendations from "./PalmistRecommendations";
 import ServiceListings from "./Servicelistings";
 import Home from "./Home";
+import BusinessDashboard from "./BusinessDashboard";
+import ServiceList from "./ServicesList";
+import Serviceform from "./Serviceform";
+import ProfileSettings from "./ProfileSettings";
 const Stack = createNativeStackNavigator();
 
 
@@ -160,6 +164,42 @@ export default function App() {
 
           name="Home"
           component={Home}
+
+        />
+        <Stack.Screen
+          screenOptions={{
+            headerShown: false
+          }}
+
+          name="Business Dashboard"
+          component={BusinessDashboard}
+
+        />
+        <Stack.Screen
+          screenOptions={{
+            headerShown: false
+          }}
+
+          name="Manage Services"
+          component={ServiceList}
+
+        />
+        <Stack.Screen
+          screenOptions={{
+            headerShown: false
+          }}
+
+          name="Add Service Form"
+          component={Serviceform}
+
+        />
+        <Stack.Screen
+          screenOptions={{
+            headerShown: false
+          }}
+
+          name="Profile Settings"
+          component={ProfileSettings}
 
         />
 
