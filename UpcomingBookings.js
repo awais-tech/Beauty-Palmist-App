@@ -40,8 +40,8 @@ export default function Upcoming() {
                             </View>
                             }
                             right={() => <View>
-                                <Button mode='contained' style={{ marginBottom: '5px' }}>View</Button>
-                                <Button mode='contained'>Cancel</Button>
+                                <Button mode='contained' style={{ marginBottom: '5px', backgroundColor: '#FF69B4' }}>View</Button>
+                                <Button mode='contained' style={{backgroundColor: '#FF69B4'}}>Cancel</Button>
                             </View>}
                         />
                         <List.Item
@@ -55,8 +55,8 @@ export default function Upcoming() {
                             </View>
                             }
                             right={() => <View>
-                                <Button mode='contained' style={{ marginBottom: '5px' }}>View</Button>
-                                <Button mode='contained'>Cancel</Button>
+                                <Button mode='contained' style={{ marginBottom: '5px', backgroundColor: '#FF69B4' }}>View</Button>
+                                <Button mode='contained' style={{backgroundColor: '#FF69B4'}}>Cancel</Button>
                             </View>}
                         />
                         <List.Item
@@ -70,8 +70,8 @@ export default function Upcoming() {
                             </View>
                             }
                             right={() => <View>
-                                <Button mode='contained' style={{ marginBottom: '5px' }}>View</Button>
-                                <Button mode='contained'>Cancel</Button>
+                                <Button mode='contained' style={{ marginBottom: '5px', backgroundColor: '#FF69B4' }}>View</Button>
+                                <Button mode='contained' style={{backgroundColor: '#FF69B4'}}>Cancel</Button>
                             </View>}
                         />
                         <List.Item
@@ -85,8 +85,8 @@ export default function Upcoming() {
                             </View>
                             }
                             right={() => <View>
-                                <Button mode='contained' style={{ marginBottom: '5px' }}>View</Button>
-                                <Button mode='contained'>Cancel</Button>
+                                <Button mode='contained' style={{ marginBottom: '5px', backgroundColor: '#FF69B4' }}>View</Button>
+                                <Button mode='contained' style={{backgroundColor: '#FF69B4'}}>Cancel</Button>
                             </View>}
                         />
                         <List.Item
@@ -100,8 +100,8 @@ export default function Upcoming() {
                             </View>
                             }
                             right={() => <View>
-                                <Button mode='contained' style={{ marginBottom: '5px' }}>View</Button>
-                                <Button mode='contained'>Cancel</Button>
+                                <Button mode='contained' style={{ marginBottom: '5px', backgroundColor: '#FF69B4' }}>View</Button>
+                                <Button mode='contained'style={{backgroundColor: '#FF69B4'}}>Cancel</Button>
                             </View>}
                         />
                     </List.Section>

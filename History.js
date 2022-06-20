@@ -40,7 +40,7 @@ export default function History() {
                             </View>
                             }
                             right={() => <View>
-                                <Button mode='contained' style={{ marginBottom: '5px' }}>View</Button>
+                                <Button mode='contained' style={{ marginBottom: '5px', backgroundColor: '#FF69B4' }}>View</Button>
                             </View>}
                         />
                         <List.Item
@@ -54,7 +54,7 @@ export default function History() {
                             </View>
                             }
                             right={() => <View>
-                                <Button mode='contained' style={{ marginBottom: '5px' }}>View</Button>
+                                <Button mode='contained' style={{ marginBottom: '5px', backgroundColor: '#FF69B4' }}>View</Button>
                             </View>}
                         />
                         <List.Item
@@ -68,7 +68,7 @@ export default function History() {
                             </View>
                             }
                             right={() => <View>
-                                <Button mode='contained' style={{ marginBottom: '5px' }}>View</Button>
+                                <Button mode='contained' style={{ marginBottom: '5px', backgroundColor: '#FF69B4' }}>View</Button>
                             </View>}
                         />
                         <List.Item
@@ -82,7 +82,7 @@ export default function History() {
                             </View>
                             }
                             right={() => <View>
-                                <Button mode='contained' style={{ marginBottom: '5px' }}>View</Button>
+                                <Button mode='contained' style={{ marginBottom: '5px', backgroundColor: '#FF69B4' }}>View</Button>
                             </View>}
                         />
                         <List.Item
@@ -96,7 +96,7 @@ export default function History() {
                             </View>
                             }
                             right={() => <View>
-                                <Button mode='contained' style={{ marginBottom: '5px' }}>View</Button>
+                                <Button mode='contained' style={{ marginBottom: '5px', backgroundColor: '#FF69B4' }}>View</Button>
                             </View>}
                         />
                     </List.Section>

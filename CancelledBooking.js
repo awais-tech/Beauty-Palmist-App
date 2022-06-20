@@ -40,8 +40,8 @@ export default function Cancelled() {
                             </View>
                             }
                             right={() => <View>
-                                <Button mode='contained' style={{ marginBottom: '5px' }}>View</Button>
-                                <Text style={{color: 'black', backgroundColor: 'lightgreen', fontWeight: 'bold'}}>Cancelled By Company/Client</Text>
+                                <Button mode='contained' style={{ marginBottom: '5px', backgroundColor: '#FF69B4' }}>View</Button>
+                                <Text style={{ color: 'black', backgroundColor: 'lightgreen', fontWeight: 'bold' }}>Cancelled By Company/Client</Text>
                             </View>}
                         />
                         <List.Item
@@ -55,8 +55,8 @@ export default function Cancelled() {
                             </View>
                             }
                             right={() => <View>
-                                <Button mode='contained' style={{ marginBottom: '5px' }}>View</Button>
-                                <Text style={{color: 'black', backgroundColor: 'lightgreen', fontWeight: 'bold'}}>Cancelled By Company/Client</Text>
+                                <Button mode='contained' style={{ marginBottom: '5px', backgroundColor: '#FF69B4' }}>View</Button>
+                                <Text style={{ color: 'black', backgroundColor: 'lightgreen', fontWeight: 'bold' }}>Cancelled By Company/Client</Text>
                             </View>}
                         />
                         <List.Item
@@ -70,8 +70,8 @@ export default function Cancelled() {
                             </View>
                             }
                             right={() => <View>
-                                <Button mode='contained' style={{ marginBottom: '5px' }}>View</Button>
-                                <Text style={{color: 'black', backgroundColor: 'lightgreen', fontWeight: 'bold'}}>Cancelled By Company/Client</Text>
+                                <Button mode='contained' style={{ marginBottom: '5px', backgroundColor: '#FF69B4' }}>View</Button>
+                                <Text style={{ color: 'black', backgroundColor: 'lightgreen', fontWeight: 'bold' }}>Cancelled By Company/Client</Text>
                             </View>}
                         />
                         <List.Item
@@ -85,8 +85,8 @@ export default function Cancelled() {
                             </View>
                             }
                             right={() => <View>
-                                <Button mode='contained' style={{ marginBottom: '5px' }}>View</Button>
-                                <Text style={{color: 'black', backgroundColor: 'lightgreen', fontWeight: 'bold'}}>Cancelled By Company/Client</Text>
+                                <Button mode='contained' style={{ marginBottom: '5px', backgroundColor: '#FF69B4' }}>View</Button>
+                                <Text style={{ color: 'black', backgroundColor: 'lightgreen', fontWeight: 'bold' }}>Cancelled By Company/Client</Text>
                             </View>}
                         />
                         <List.Item
@@ -100,8 +100,8 @@ export default function Cancelled() {
                             </View>
                             }
                             right={() => <View>
-                                <Button mode='contained' style={{ marginBottom: '5px' }}>View</Button>
-                                <Text style={{color: 'black', backgroundColor: 'lightgreen', fontWeight: 'bold'}}>Cancelled By Company/Client</Text>
+                                <Button mode='contained' style={{ marginBottom: '5px', backgroundColor: '#FF69B4' }}>View</Button>
+                                <Text style={{ color: 'black', backgroundColor: 'lightgreen', fontWeight: 'bold' }}>Cancelled By Company/Client</Text>
                             </View>}
                         />
                     </List.Section>
