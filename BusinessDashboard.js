@@ -11,7 +11,7 @@ export default function BusinessDashboard() {
         navigation.navigate('Profile Settings')
     }
     const movess = () => {
-        navigation.navigate('Bookings')
+        navigation.navigate('Booking Options')
     }
     return (
         <SafeAreaView style={{height: '100%'}}>

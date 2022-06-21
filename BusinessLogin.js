@@ -8,6 +8,9 @@ export default function BusinessLogin() {
   const move=()=>{
     navigation.navigate('Business Dashboard')
   }
+  const moves=()=>{
+    navigation.navigate('BusinessSignup')
+  }
   return (
     <View style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100%', backgroundColor: '#ffe4e4' }}>
         <Card style={{ padding: '40px', borderRadius: '20px', width: '90%' }}>
@@ -15,7 +18,8 @@ export default function BusinessLogin() {
           <TextInput placeholder='Username' style={styles.Textfields}></TextInput>
           <TextInput placeholder='Password' style={styles.Textfields}></TextInput>
           <Button style={{ marginBottom: '20px', backgroundColor: '#FF69B4' }} mode="contained" onPress={()=>move()} >Login</Button>
-
+          <Text style={{ textAlign: 'center', marginBottom: '10px' }} >Don't have an account?</Text>
+          <Button color='grey' onPress={()=>moves()}>Sign Up</Button>
         </Card>
     </View>
   );

@@ -35,6 +35,8 @@ import CalenderMethod from "./BookCalenderMethod";
 import AddCalenderMethodDetails from "./AddDetailsCalenderMethod";
 import PaymentInfo from "./CalenderMethodPayment";
 import CalenderMethodConfirmation from "./BookingMethodConfirmation";
+import Choosebookingoptions from "./ChooseBookingtype";
+import Bookingmode from "./BookingMode";
 const Stack = createNativeStackNavigator();
 
 
@@ -285,7 +287,24 @@ export default function App() {
           component={CalenderMethodConfirmation}
 
         />
+        <Stack.Screen
+          screenOptions={{
+            headerShown: false
+          }}
 
+          name="Booking Options"
+          component={Choosebookingoptions}
+
+        />
+        <Stack.Screen
+          screenOptions={{
+            headerShown: false
+          }}
+
+          name="Booking Mode"
+          component={Bookingmode}
+
+        />
 
 
       </Stack.Navigator>

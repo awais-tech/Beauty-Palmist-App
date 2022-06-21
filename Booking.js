@@ -17,7 +17,7 @@ export default function Choosebookingtype() {
   return (
     <View style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100%', backgroundColor: '#ffe4e4' }}>
         <Card style={{ padding: '40px', borderRadius: '20px', width: '90%' }}>
-          <Text style={{ fontWeight: 'bold', textAlign: 'center', marginBottom: '30px', fontSize: '24px' }}>Bookings</Text>
+          <Text style={{ fontWeight: 'bold', textAlign: 'center', marginBottom: '30px', fontSize: '24px' }}>Booking Schedule</Text>
           <Button style={{ marginBottom: '30px', backgroundColor: '#FF69B4' }} mode="contained"  onPress={()=>move()}>Upcoming Bookings</Button>
           <Button style={{ marginBottom: '30px', backgroundColor: '#FF69B4' }} mode="contained"  onPress={()=>moves()}>History</Button>
           <Button style={{ marginBottom: '30px', backgroundColor: '#FF69B4' }} mode="contained"  onPress={()=>movess()}>Cancelled Bookings</Button>
