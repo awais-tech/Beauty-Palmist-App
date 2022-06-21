@@ -31,6 +31,10 @@ import Choosebookingtype from "./Booking";
 import Upcoming from "./UpcomingBookings";
 import History from "./History";
 import Cancelled from "./CancelledBooking";
+import CalenderMethod from "./BookCalenderMethod";
+import AddCalenderMethodDetails from "./AddDetailsCalenderMethod";
+import PaymentInfo from "./CalenderMethodPayment";
+import CalenderMethodConfirmation from "./BookingMethodConfirmation";
 const Stack = createNativeStackNavigator();
 
 
@@ -241,6 +245,44 @@ export default function App() {
 
           name="Cancelled Bookings"
           component={Cancelled}
+
+        />
+
+        <Stack.Screen
+          screenOptions={{
+            headerShown: false
+          }}
+
+          name="Calender Method"
+          component={CalenderMethod}
+
+        />
+
+        <Stack.Screen
+          screenOptions={{
+            headerShown: false
+          }}
+
+          name="Add details"
+          component={AddCalenderMethodDetails}
+
+        />
+        <Stack.Screen
+          screenOptions={{
+            headerShown: false
+          }}
+
+          name="Payment Information"
+          component={PaymentInfo}
+
+        />
+        <Stack.Screen
+          screenOptions={{
+            headerShown: false
+          }}
+
+          name="Confirmation Message"
+          component={CalenderMethodConfirmation}
 
         />
 
