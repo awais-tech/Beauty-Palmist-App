@@ -1,5 +1,5 @@
 import { Avatar, Button, Card, Checkbox , Paragraph } from 'react-native-paper';
-import { StyleSheet, Text, View, TextInput, Drawer, SafeAreaView  } from 'react-native';
+import { StyleSheet, Text, View, TextInput, Drawer, SafeAreaView, ImageBackground  } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 export default function BusinessSignup() {
@@ -9,7 +9,8 @@ export default function BusinessSignup() {
   }
   return (
     <SafeAreaView>
-    <View style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100%', backgroundColor: '#ffe4e4' }}>
+    <ImageBackground source={'https://static.wixstatic.com/media/11062b_39eb5581b30f41099a77bce7636c50f6~mv2.jpg/v1/fill/w_1349,h_978,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/11062b_39eb5581b30f41099a77bce7636c50f6~mv2.jpg'} style={{height: '100%', width: '100%'}}>
+    <View style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
         <Card style={{ padding: '40px', borderRadius: '20px', width: '90%', marginTop: '70px', marginBottom: '70px'}}>
           <Text style={{ fontWeight: 'bold', textAlign: 'center', marginBottom: '20px', fontSize: '24px' }}>Business Signup</Text>
           <TextInput placeholder='Company/Business Name' style={styles.Textfields}></TextInput>
@@ -33,6 +34,7 @@ export default function BusinessSignup() {
           <Button style={{ marginBottom: '20px', backgroundColor: '#FF69B4' }} mode="contained" onPress={()=>move()}>Signup</Button>
         </Card>
     </View>
+    </ImageBackground>
     </SafeAreaView>
   );
 }

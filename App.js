@@ -127,7 +127,7 @@ export default function App() {
             headerShown: false
           }}
 
-          name="ServiceSelect"
+          name="Choose Service"
           component={ServiceSelect}
 
         />
