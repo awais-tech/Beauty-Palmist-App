@@ -17,25 +17,25 @@ export default function BusinessDashboard() {
         <SafeAreaView >
             <View style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100%', backgroundColor: '#ffe4e4', }}>
                 <Card style={{ padding: '40px', borderRadius: '20px', width: '90%', marginBottom: '30px', marginTop: '30px' }}>
-                    <Image source={require('./assets/booking.gif')} style={{width: '100%', height: '300px'}}></Image>
-                        <Text style={{ fontWeight: 'bold', fontSize: '24px', marginBottom: '10px' }}>Bookings</Text>
-                        <Text style={{ fontWeight: 'bold', fontSize: '16px', marginBottom: '10px' }}>View Booking Schedules and Requests</Text>
-                        <Button mode='contained' style={{backgroundColor: '#FF69B4'}} onPress={()=>movess()}>Manage</Button>
+                    <Image source={require('./assets/booking.gif')} style={{ width: '100%', height: '300px' }}></Image>
+                    <Text style={{ fontWeight: 'bold', fontSize: '24px', marginBottom: '10px' }}>Bookings</Text>
+                    <Text style={{ fontWeight: 'bold', fontSize: '16px', marginBottom: '10px' }}>View Booking Schedules and Requests</Text>
+                    <Button mode='contained' style={{ backgroundColor: '#FF69B4' }} onPress={() => movess()}>Manage</Button>
                 </Card>
                 <Card style={{ padding: '40px', borderRadius: '20px', width: '90%', marginBottom: '30px' }}>
                     <View style={{ display: 'flex', flexDirection: 'column' }}>
-                    <Image source={require('./assets/service.gif')} style={{width: '100%', height: '300px'}}></Image>
+                        <Image source={require('./assets/service.gif')} style={{ width: '100%', height: '300px' }}></Image>
                         <Text style={{ fontWeight: 'bold', fontSize: '24px', marginBottom: '10px' }}>Services</Text>
                         <Text style={{ fontWeight: 'bold', fontSize: '16px', marginBottom: '10px' }}>View and Update your services</Text>
-                        <Button mode='contained' style={{backgroundColor: '#FF69B4'}} onPress={()=>move()}>Manage</Button>
+                        <Button mode='contained' style={{ backgroundColor: '#FF69B4' }} onPress={() => move()}>Manage</Button>
                     </View>
                 </Card>
                 <Card style={{ padding: '40px', borderRadius: '20px', width: '90%', marginBottom: '30px' }}>
                     <View style={{ display: 'flex', flexDirection: 'column' }}>
-                    <Image source={require('./assets/settings.gif')} style={{width: '100%', height: '300px'}}></Image>
+                        <Image source={require('./assets/settings.gif')} style={{ width: '100%', height: '300px' }}></Image>
                         <Text style={{ fontWeight: 'bold', fontSize: '24px', marginBottom: '10px' }}>Profile Settings</Text>
                         <Text style={{ fontWeight: 'bold', fontSize: '16px', marginBottom: '10px' }}>Keep your Profile Information Up to Date</Text>
-                        <Button mode='contained' style={{backgroundColor: '#FF69B4'}} onPress={()=>moves()}>Manage</Button>
+                        <Button mode='contained' style={{ backgroundColor: '#FF69B4' }} onPress={() => moves()}>Manage</Button>
                     </View>
                 </Card>
             </View>
