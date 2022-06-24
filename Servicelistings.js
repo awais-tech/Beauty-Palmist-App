@@ -1,5 +1,5 @@
 import { Avatar, Button, Card, Appbar, Searchbar } from 'react-native-paper';
-import { StyleSheet, Text, View, TextInput, Drawer, ImageBackground, SafeAreaView } from 'react-native';
+import { StyleSheet, Text, View, TextInput, Drawer, ImageBackground, SafeAreaView, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import * as React from 'react';
 
@@ -23,16 +23,24 @@ export default function ServiceListings() {
                     placeholder="Search Service"
                     onChangeText={onChangeSearch}
                     value={searchQuery}
-                    style={{ marginBottom: '20px' }}
+                    style={{ marginBottom: '20px', width: '80%' }}
                 />
                 <Card style={{ padding: '40px', borderRadius: '2px', width: '90%', borderColor: '#6804ec', borderWidth: 2, marginBottom: '20px' }}>
+                <TouchableOpacity onPress={()=>move()}>
                     <View style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
                         <Text style={{ fontSize: '24px', fontWeight: 'bold', fontStyle: 'italic', marginBottom: '20px' }}>Hair Protein Treatment</Text>
                         <Text style={{ fontSize: '20px', marginBottom: '20px' }}>/ Aira's Aesthetics Services</Text>
                         <Text style={{ fontSize: '20px', marginBottom: '20px' }}>the most powerful, non-invasive skin resurfacing treatments available today. It combines cleansing, exfoliation, extraction, hydration and antioxidant protection that removes........</Text>
-                        <Button mode="outlined" style={{ marginTop: '20px' }} onPress={() => move()}>
-                            View Service
-                        </Button>
+
+                    </View>
+                    </TouchableOpacity>
+
+                </Card>
+                <Card style={{ padding: '40px', borderRadius: '2px', width: '90%', borderColor: '#6804ec', borderWidth: 2, marginBottom: '20px' }}>
+                    <View style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+                        <Text style={{ fontSize: '24px', fontWeight: 'bold', fontStyle: 'italic', marginBottom: '20px' }}>Hair Protein Treatment</Text>
+                        <Text style={{ fontSize: '20px', marginBottom: '20px' }}>/ Aira's Aesthetics Services</Text>
+                        <Text style={{ fontSize: '20px', marginBottom: '20px' }}>the most powerful, non-invasive skin resurfacing treatments available today. It combines cleansing, exfoliation, extraction, hydration and antioxidant protection that removes........</Text>
 
                     </View>
                 </Card>
@@ -41,9 +49,6 @@ export default function ServiceListings() {
                         <Text style={{ fontSize: '24px', fontWeight: 'bold', fontStyle: 'italic', marginBottom: '20px' }}>Hair Protein Treatment</Text>
                         <Text style={{ fontSize: '20px', marginBottom: '20px' }}>/ Aira's Aesthetics Services</Text>
                         <Text style={{ fontSize: '20px', marginBottom: '20px' }}>the most powerful, non-invasive skin resurfacing treatments available today. It combines cleansing, exfoliation, extraction, hydration and antioxidant protection that removes........</Text>
-                        <Button mode="outlined" style={{ marginTop: '20px' }} onPress={() => move()}>
-                            View Service
-                        </Button>
 
                     </View>
                 </Card>
@@ -52,20 +57,6 @@ export default function ServiceListings() {
                         <Text style={{ fontSize: '24px', fontWeight: 'bold', fontStyle: 'italic', marginBottom: '20px' }}>Hair Protein Treatment</Text>
                         <Text style={{ fontSize: '20px', marginBottom: '20px' }}>/ Aira's Aesthetics Services</Text>
                         <Text style={{ fontSize: '20px', marginBottom: '20px' }}>the most powerful, non-invasive skin resurfacing treatments available today. It combines cleansing, exfoliation, extraction, hydration and antioxidant protection that removes........</Text>
-                        <Button mode="outlined" style={{ marginTop: '20px' }} onPress={() => move()}>
-                            View Service
-                        </Button>
-
-                    </View>
-                </Card>
-                <Card style={{ padding: '40px', borderRadius: '2px', width: '90%', borderColor: '#6804ec', borderWidth: 2, marginBottom: '20px' }}>
-                    <View style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-                        <Text style={{ fontSize: '24px', fontWeight: 'bold', fontStyle: 'italic', marginBottom: '20px' }}>Hair Protein Treatment</Text>
-                        <Text style={{ fontSize: '20px', marginBottom: '20px' }}>/ Aira's Aesthetics Services</Text>
-                        <Text style={{ fontSize: '20px', marginBottom: '20px' }}>the most powerful, non-invasive skin resurfacing treatments available today. It combines cleansing, exfoliation, extraction, hydration and antioxidant protection that removes........</Text>
-                        <Button mode="outlined" style={{ marginTop: '20px' }} onPress={() => move()}>
-                            View Service
-                        </Button>
 
                     </View>
                 </Card>

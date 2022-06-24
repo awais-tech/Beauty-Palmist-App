@@ -17,6 +17,7 @@ export default function AddCalenderMethodDetails() {
                     <TextInput placeholder='Email' style={styles.Textfields}></TextInput>
                     <TextInput placeholder='Number Of Clients' style={styles.Textfields}></TextInput>
                     <TextInput placeholder='Address' style={styles.Textfields}></TextInput>
+                    <Checkbox.Item label="Save Address" status="checked"/>
                     <TextInput placeholder='Building/Floor' style={styles.Textfields}></TextInput>
                     <TextInput placeholder='City' style={styles.Textfields}></TextInput>
                     <TextInput placeholder='State' style={styles.Textfields}></TextInput>

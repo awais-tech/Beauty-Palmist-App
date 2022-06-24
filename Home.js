@@ -18,6 +18,10 @@ export default function Home() {
                 <Text style={{ fontSize: '44px', fontWeight: 'bold', marginTop: '30px', marginLeft: '20px', textAlign: 'left', color: '#FF69B4' }}>Explore,</Text>
                 <Text style={{ fontSize: '44px', fontWeight: 'bold', marginTop: '-10px', marginLeft: '20px', textAlign: 'left', }}>Beauty Palmist</Text>
                 <View style={{ marginTop: '20px', padding: '30px' }}>
+                <Card style={{ padding: '40px', borderRadius: '20px', width: '100%', marginBottom: '30px' }}>
+                        <Image source={require('./assets/trending.gif')} style={{width: '100%', height: '300px'}}></Image>
+                        <Button mode='contained' style={{ backgroundColor: '#FF69B4' }}>Trending</Button>
+                    </Card>
                     <Card style={{ padding: '40px', borderRadius: '20px', width: '100%', marginBottom: '30px' }}>
                         <Image source={require('./assets/service.gif')} style={{width: '100%', height: '300px'}}></Image>
                         <Button mode='contained' style={{ backgroundColor: '#FF69B4' }} onPress={() => { move() }}>Services</Button>
