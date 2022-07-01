@@ -37,6 +37,14 @@ import PaymentInfo from "./CalenderMethodPayment";
 import CalenderMethodConfirmation from "./BookingMethodConfirmation";
 import Choosebookingoptions from "./ChooseBookingtype";
 import Bookingmode from "./BookingMode";
+import Chooseuserbookingtype from "./UserBookingsPage";
+import UserUpcoming from "./UserUpcomingBookings";
+import UserHistory from "./UserBookingHistory";
+import UserCancelled from "./UserCancelledBookings";
+import UserRejected from "./UserRejectedBookings";
+import PendingBookingSelectionPage from "./PendingBookingSelection";
+import UserRequestPending from "./UserRequestPending";
+import UserPaymentPending from "./UserPaymentPending";
 const Stack = createNativeStackNavigator();
 
 
@@ -304,6 +312,62 @@ export default function App() {
           name="Booking Mode"
           component={Bookingmode}
 
+        />
+        <Stack.Screen
+          screenOptions={{
+            headerShown: false
+          }}
+          name="Your Bookings"
+          component={Chooseuserbookingtype}
+        />
+        <Stack.Screen
+          screenOptions={{
+            headerShown: false
+          }}
+          name="Your Upcoming Bookings"
+          component={UserUpcoming}
+        />
+        <Stack.Screen
+          screenOptions={{
+            headerShown: false
+          }}
+          name="Your Bookings History"
+          component={UserHistory}
+        />
+        <Stack.Screen
+          screenOptions={{
+            headerShown: false
+          }}
+          name="Your Cancelled Bookings"
+          component={UserCancelled}
+        />
+        <Stack.Screen
+          screenOptions={{
+            headerShown: false
+          }}
+          name="Rejected Bookings"
+          component={UserRejected}
+        />
+        <Stack.Screen
+          screenOptions={{
+            headerShown: false
+          }}
+          name="Pending Bookings"
+          component={PendingBookingSelectionPage}
+        />
+        <Stack.Screen
+          screenOptions={{
+            headerShown: false
+          }}
+          name="Requests Pending"
+          component={UserRequestPending}
+        />
+        <Stack.Screen
+          screenOptions={{
+            headerShown: false
+          }}
+          name="Payment Pending"
+          component={UserPaymentPending}
         />
 
 

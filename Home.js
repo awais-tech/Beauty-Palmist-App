@@ -11,6 +11,9 @@ export default function Home() {
     const moves = () => {
         navigation.navigate('QuizCategory')
     }
+    const movess = () => {
+        navigation.navigate('Your Bookings')
+    }
     return (
         <SafeAreaView>
         <View style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100%', backgroundColor: '#fff4f4' }}>
@@ -26,9 +29,13 @@ export default function Home() {
                         <Image source={require('./assets/service.gif')} style={{width: '100%', height: '300px'}}></Image>
                         <Button mode='contained' style={{ backgroundColor: '#FF69B4' }} onPress={() => { move() }}>Services</Button>
                     </Card>
-                    <Card style={{ padding: '40px', borderRadius: '20px', width: '100%' }}>
+                    <Card style={{ padding: '40px', borderRadius: '20px', width: '100%',  marginBottom: '30px' }}>
                     <Image source={require('./assets/quiz.gif')} style={{width: '100%', height: '300px'}}></Image>
                         <Button mode='contained' textColor='black' style={{ backgroundColor: '#FF69B4' }} onPress={() => { moves() }}>Palmist Quiz</Button>
+                    </Card>
+                    <Card style={{ padding: '40px', borderRadius: '20px', width: '100%' }}>
+                    <Image source={require('./assets/booking.gif')} style={{width: '100%', height: '300px'}}></Image>
+                        <Button mode='contained' textColor='black' style={{ backgroundColor: '#FF69B4' }} onPress={() => { movess() }}>Your Bookings</Button>
                     </Card>
                 </View>
             </ImageBackground>
