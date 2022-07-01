@@ -10,5 +10,5 @@ class Quiz extends GenericServices {
 
   
 }
-let quiz = new Quiz();
-export default quiz;
+let quizs = new Quiz();
+export default quizs;

@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, TextInput, Drawer, ImageBackground, SafeAreaVie
 import { useNavigation } from '@react-navigation/native';
 import * as React from 'react';
 import beautyService from './Services/services/Servicesbeauty';
+import quizAnswer from './Services/services/quizAnswer';
 
 
 export default function ServiceListings({route}) {
@@ -12,7 +13,14 @@ export default function ServiceListings({route}) {
     const [subCat, setService] = React.useState([])
     const [ori, setOri] = React.useState([]);
     const [loading, setloading] = React.useState(false);
-  
+
+
+
+  const [currentItems, setCurrentItems] = React.useState([]);
+  const [pageCount, setPageCount] = React.useState(0);
+  // Here we use item offsets; we could also use page offsets
+  // following the API or data you're working with.
+  const [itemOffset, setItemOffset] = React.useState(0);
    
 
     const navigation = useNavigation();
@@ -21,7 +29,37 @@ export default function ServiceListings({route}) {
     }
     React.useEffect(() => {
 
+        if (route.params.check) {
+            let recom = [];
+            setloading(true);
+            console.log(route.params.val._id, 4);
+            quizAnswer.getAnswer(route.params.val._id).then((val) => {
+                console.log(val);
+                route.params.ans.map((userans) =>
+                recom.push(
+                  ...val.quiz.filter((fil) =>
+                    fil.Answer.some(
+                      (finding) =>
+                        finding.answer == userans.answer &&
+                        finding.name == userans.name
+                    )
+                  )
+                )
+              );
+              console.log(recom[0]?.ServiceId?.Price, 4);
+              let ids = recom.map((valid) => valid?.ServiceId?._id);
+         
+              beautyService.recommendationServices({ ids: ids }).then((result) => {
+                console.log(ids);
+                setService(result?.userServices);
+                setOri(result.userServices);
+                setloading(false);
+              });
+            });
+          } 
+          else{
           getcate();
+          }
    
     
         // byCategory

@@ -92,7 +92,7 @@ export default function Clientlogin() {
               password: Yup.string().required("Password is required"),
             })}
             onSubmit={handleFormSubmit}
-            initialValues={{ email: "", password: "" }}
+            initialValues={{ email: "vegestad@nproxi.com", password: "Minahil123@" }}
           >
               {({ handleChange, handleBlur, handleSubmit, values }) => (
                 <View>
@@ -108,6 +108,7 @@ export default function Clientlogin() {
           
               placeholder="Password"
               style={styles.Textfields}
+              value={values.password}
               onChangeText={handleChange("password")}
               onBlur={handleBlur("password")}
             ></TextInput>

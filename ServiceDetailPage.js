@@ -7,8 +7,9 @@ export default function ServiceDetailPage({route}) {
     const navigation = useNavigation();
     const val= route.params.val;
     const move=()=>{
-        navigation.navigate('Calender Method')
+        navigation.navigate('Calender Method',{val,val})
       }
+      
     return (
         <View style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100%', backgroundColor: '#ffe4e4' }}>
             <Card style={{ padding: '40px', borderRadius: '20px', width: '90%',}}>
@@ -28,7 +29,7 @@ export default function ServiceDetailPage({route}) {
                 {val?.detail}</Text>
                         <Button icon={'star'} color="#ffa534">3.7 Average Rating</Button>
                         <Text style={{textAlign: 'center', marginBottom: '20px'}}>(Based on 209 Reviews)</Text>
-                    <Button style={{ marginBottom: '20px', backgroundColor: '#FF69B4' }} mode="contained" onPress={()=>move()}>Book Now! (Calender Method)</Button>
+                    <Button style={{ marginBottom: '20px', backgroundColor: '#FF69B4' }} mode="contained" onPress={()=>move(val)}>Book Now! (Calender Method)</Button>
                     <Button style={{ marginBottom: '20px', backgroundColor: '#FF69B4' }} mode="contained">Book Now! (Manual Input Method)</Button>
 
 
