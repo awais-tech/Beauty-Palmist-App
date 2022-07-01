@@ -14,22 +14,7 @@ export default function PaymentInfo() {
             <View style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100%', backgroundColor: '#ffe4e4' }}>
                 <Card style={{ padding: '40px', borderRadius: '20px', width: '90%', marginTop: '20px', marginBottom: '20px' }}>
                     <Text style={{ fontWeight: 'bold', textAlign: 'center', marginBottom: '30px', fontSize: '24px' }}>Payment Information</Text>
-                    <RadioButton.Group onValueChange={newValue => setValue(newValue)} value={value} style={{marginTop: '20px', marginBottom: '20px'}}>
-                        <View style={{ display: 'flex', flexDirection: 'row' }}>
-                            <RadioButton value="CreditCard" />
-                            <Text style={{ fontSize: '18px', marginTop: '3px' }}>Credit Card</Text>
-                        </View>
-                        <View style={{ display: 'flex', flexDirection: 'row' }}>
-                            <RadioButton value="MasterCard" />
-                            <Text style={{ fontSize: '18px', marginTop: '3px' }}>Master Card</Text>
-
-                        </View>
-                        <View style={{ display: 'flex', flexDirection: 'row' }}>
-                            <RadioButton value="Paypal" />
-                            <Text style={{ fontSize: '18px', marginTop: '3px' }}>Paypal</Text>
-
-                        </View>
-                    </RadioButton.Group>
+                
                     <Card style={{ padding: '40px', borderRadius: '20px', width: '100%', backgroundColor: '#f8ecec', marginBottom: '20px', marginTop: '20px' }}>
                         <TextInput placeholder='Card Number' style={styles.Textfields}></TextInput>
                         <TextInput placeholder='Card Holder Name' style={styles.Textfields}></TextInput>
