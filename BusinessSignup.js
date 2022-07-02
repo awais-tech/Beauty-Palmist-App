@@ -16,6 +16,7 @@ export default function BusinessSignup() {
           <TextInput placeholder='Company/Business Name' style={styles.Textfields}></TextInput>
           <TextInput placeholder='Location/Address' style={styles.Textfields}></TextInput>
           <TextInput placeholder='Email' style={styles.Textfields}></TextInput>
+          <TextInput placeholder='Add Logo' style={styles.Textfields}></TextInput>
           <View style={{marginBottom: '20px'}}>
           <Text style={{fontWeight: 'bold', color: '#9c8cbc'}}>Select Your Service Category</Text>
           <Checkbox.Item label="Salon" status="unchecked" />
@@ -29,6 +30,8 @@ export default function BusinessSignup() {
           <Checkbox.Item label="Small Business" status="unchecked" />
           <Checkbox.Item label="Home based" status="unchecked" />
           </View>
+          <TextInput placeholder='Attach CNIC (Home based/Small Business)' style={styles.Textfields}></TextInput>
+          <TextInput placeholder='Attach Documents (If Registered)' style={styles.Textfields}></TextInput>
           <TextInput placeholder='Give description about your services, experience and achievements' style={styles.AboutTextfield}></TextInput>
 
           <Button style={{ marginBottom: '20px', backgroundColor: '#FF69B4' }} mode="contained" onPress={()=>move()}>Signup</Button>
