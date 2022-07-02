@@ -6,6 +6,7 @@ import { ErrorMessage, Formik } from "formik";
 import beautyService from './Services/services/Servicesbeauty';
 import bussnessServices from './Services/services/bussnessuser';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import bookingServices from './Services/services/booking';
 
 
 export default function AddCalenderMethodDetails({route}) {
@@ -35,9 +36,10 @@ const val=route.params;
         setInit({...init,name:userInfo.name,email:userInfo.email,phoneno:userInfo.phoneNo});
     }
 
-      const handleFormSubmit = (values) => {
-   
-        beautyService
+      const handleFormSubmit = async (values) => {
+        const user=await AsyncStorage.getItem('user');
+        const userInfo=JSON.parse(user);
+        bookingServices
           .addBooking({
             NumberClients: 1,
             Price: val.val.Price,
@@ -47,21 +49,21 @@ const val=route.params;
             City: values.city,
             State: values.state,
             Message: values.message,
-            Date: state.bookingInfo.date,
-            Time: state.bookingInfo.timer,
+            Date: val.date,
+            Time: val.timer,
     
-            ServiceId: state.bookingInfo._id,
-            UserId: state.user._id,
-            OwnerId: data.info.userid._id,
+            ServiceId: val.val._id,
+            UserId: userInfo.id,
+            OwnerId: val.val.userid._id,
           })
           .then((val) => {
-            bussnessServices.createextra({...extra,address:values.address}).then(() => {
+            // bussnessServices.createextra({...extra,address:values.address}).then(() => {
             //   Swal.fire("Booking Request has been sent").then((val) => {
             //     navigation("/MyBooking");
             //   });
             alert("Booking Request has been sent");
 
-            });
+            // });
          
           });
       };
