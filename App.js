@@ -194,19 +194,14 @@ export default function App() {
 
         />
         <Stack.Screen
-          screenOptions={{
-            headerShown: false
-          }}
+       
 
           name="Manage Services"
           component={ServiceList}
 
         />
         <Stack.Screen
-          screenOptions={{
-            headerShown: false
-          }}
-
+        
           name="Add Service Form"
           component={Serviceform}
 

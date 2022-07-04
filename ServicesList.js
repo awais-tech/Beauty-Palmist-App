@@ -2,18 +2,72 @@ import { Avatar, Button, Card, Appbar, Searchbar } from 'react-native-paper';
 import { StyleSheet, Text, View, TextInput, Drawer, ImageBackground, SafeAreaView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import * as React from 'react';
+import beautyService from './Services/services/Servicesbeauty';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function ServiceList() {
     const [searchQuery, setSearchQuery] = React.useState('');
     const onChangeSearch = query => setSearchQuery(query);
 
     const navigation = useNavigation();
-    const move = () => {
-        navigation.navigate('ServiceDetailPage')
+    const move = (val) => {
+        navigation.navigate('ServiceDetailPage',{val:val})
     }
     const serviceformr = () => {
         navigation.navigate('Add Service Form')
     }
+    
+
+  const [subCat, setService] = React.useState([]);
+  const itemsPerPage = 6;
+  const [ori, setOri] = React.useState([]);
+  const [loading, setloading] = React.useState(false);
+  const [currentItems, setCurrentItems] = React.useState([]);
+  const [pageCount, setPageCount] = React.useState(0);
+
+  // Here we use item offsets; we could also use page offsets
+  // following the API or data you're working with.
+  const [itemOffset, setItemOffset] = React.useState(0);
+  React.useEffect(() => {
+    getcate();
+
+    // byCategory
+  }, []);
+  const find = (value) => {
+    setService(
+      ori.filter((fil) =>
+        fil.name.toUpperCase().includes(value.toUpperCase())
+      )
+    );
+    setSearchQuery(value)
+  };
+    const remove = (id) => {
+        beautyService
+          .remServices(id)
+          .then((value) => {
+            setOri(ori.filter((rem) => rem._id != id));
+            setService(ori.filter((rem) => rem._id != id));
+            alert("Delete Successfully");
+          })
+          .catch((e) => {
+            alert("Cannot be deleted at that Time");
+          });
+      };
+    const getcate = async () => {
+        try {
+    
+          const user=await AsyncStorage.getItem('user');
+         const data=JSON.parse(user);
+         console.log(data);
+          let result = await beautyService.ServiceUser(data.id);
+    
+          setService(result.userServices);
+          setOri(result.userServices);
+         
+        } catch (e) {
+            alert(e.error);
+        }
+      };
     return (
         <SafeAreaView>
             <View style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100%', backgroundColor: '#fff4f4' }}>
@@ -24,60 +78,32 @@ export default function ServiceList() {
                 </ImageBackground>
                     <Searchbar
                         placeholder="Search Service"
-                        onChangeText={onChangeSearch}
+                        onChangeText={find}
                         value={searchQuery}
                     />
                     <View style={{alignSelf: 'flex-end'}}>
                     <Button mode='contained' style={{backgroundColor: '#FF69B4', margin: '30px'}} onPress={()=>serviceformr()}>New Service</Button>
                     </View>
+                    {subCat.map((ori, index) => (
                 <Card style={{ padding: '40px', borderRadius: '2px', width: '90%', borderColor: '#6804ec', borderWidth: 2, marginBottom: '20px' }}>
                     <View style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-                        <Text style={{ fontSize: '24px', fontWeight: 'bold', fontStyle: 'italic', marginBottom: '20px' }}>Hair Protein Treatment</Text>
+                        <Text style={{ fontSize: '24px', fontWeight: 'bold', fontStyle: 'italic', marginBottom: '20px' }}>{ori?.name}</Text>
                         <Text style={{ fontSize: '20px', marginBottom: '20px' }}>/ Rating: 3.0</Text>
-                        <Button mode="outlined" style={{ marginTop: '20px' }} onPress={() => move()}>
+                        <Button mode="outlined" style={{ marginTop: '20px' }} onPress={() => move(ori)}>
                             View Service
                         </Button>
                         <Button mode="outlined" style={{ marginTop: '20px' }}>
                             Edit Service
                         </Button>
-                        <Button mode="outlined" style={{ marginTop: '20px' }}>
+                        <Button mode="outlined" style={{ marginTop: '20px' }} onPress={()=>remove(ori._id)}>
+                            
                             Delete Service
                         </Button>
 
                     </View>
                 </Card>
-                <Card style={{ padding: '40px', borderRadius: '2px', width: '90%', borderColor: '#6804ec', borderWidth: 2, marginBottom: '20px' }}>
-                    <View style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-                        <Text style={{ fontSize: '24px', fontWeight: 'bold', fontStyle: 'italic', marginBottom: '20px' }}>Hair Protein Treatment</Text>
-                        <Text style={{ fontSize: '20px', marginBottom: '20px' }}>/ Rating: 3.0</Text>
-                        <Button mode="outlined" style={{ marginTop: '20px' }} onPress={() => move()}>
-                            View Service
-                        </Button>
-                        <Button mode="outlined" style={{ marginTop: '20px' }}>
-                            Edit Service
-                        </Button>
-                        <Button mode="outlined" style={{ marginTop: '20px' }}>
-                            Delete Service
-                        </Button>
-
-                    </View>
-                </Card>
-                <Card style={{ padding: '40px', borderRadius: '2px', width: '90%', borderColor: '#6804ec', borderWidth: 2, marginBottom: '20px' }}>
-                    <View style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-                        <Text style={{ fontSize: '24px', fontWeight: 'bold', fontStyle: 'italic', marginBottom: '20px' }}>Hair Protein Treatment</Text>
-                        <Text style={{ fontSize: '20px', marginBottom: '20px' }}>/ Rating: 3.0</Text>
-                        <Button mode="outlined" style={{ marginTop: '20px' }} onPress={() => move()}>
-                            View Service
-                        </Button>
-                        <Button mode="outlined" style={{ marginTop: '20px' }}>
-                            Edit Service
-                        </Button>
-                        <Button mode="outlined" style={{ marginTop: '20px' }}>
-                            Delete Service
-                        </Button>
-
-                    </View>
-                </Card>
+                    ))}
+            
             </View>
         </SafeAreaView>
     );

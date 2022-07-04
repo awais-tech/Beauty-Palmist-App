@@ -78,7 +78,7 @@ const val=route.params;
                 enableReinitialize={true}
               >
                 {({ handleChange, handleBlur, handleSubmit, values }) => (
-                    <>
+                    <View>
                     <TextInput placeholder='Name' style={styles.Textfields}    value={values.name} onChangeText={handleChange("name")}
               onBlur={handleBlur("name")}/> 
                     <TextInput placeholder='Contact Number' style={styles.Textfields} value={values.phoneno}    onChangeText={handleChange("phoneno")}
@@ -115,7 +115,7 @@ const val=route.params;
 
 
                     <Button style={{ marginBottom: '20px', backgroundColor: '#FF69B4' }} mode="contained" onPress={() => handleSubmit()}>Pay Now</Button>
-                    </>
+                    </View>
                 )}</Formik> </Card>
             </View>
         </SafeAreaView>

@@ -15,6 +15,8 @@ import {
   ImageBackground,
   SafeAreaView,
 } from "react-native";
+import moment from 'moment';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from "@react-navigation/native";
 
 import * as React from "react";
@@ -25,6 +27,12 @@ export default function Upcoming() {
   const [searchQuery, setSearchQuery] = React.useState("");
   const onChangeSearch = (query) => setSearchQuery(query);
   const [val, setval] = React.useState({});
+  const [service, setServices] = React.useState([]);
+  const [visible, setVisible] = React.useState(false);
+
+  const showModal = () => setVisible(true);
+  const hideModal = () => setVisible(false);
+  const containerStyle = {backgroundColor: 'white', padding: 20};
 
   React.useEffect(() => {
     booking();
@@ -32,20 +40,23 @@ export default function Upcoming() {
   const booking=async ()=>{
     const user=await AsyncStorage.getItem('user');
     const userInfo=JSON.parse(user);
-    bookingServices.getBooking(userInfo.id).then((val) => {
+    bookingServices.getOwnerBooking(userInfo.id).then((val) => {
+      console.log(val);
         setServices(
           val.Booking.filter(
             (val) =>
-              val.status == 4 &&
-              !moment(formatDate(val.Date))
-                .startOf("day")
-                .fromNow()
-                .includes("ago")
+            val.status == 4 &&
+            !moment(formatDate(val.Date))
+              .startOf("day")
+              .fromNow()
+              .includes("ago")
+           
           )
         );
         console.log(formatDate("May 11th 14"));
       });
   }
+
   function formatDate(date) {
     let main = date.replace("th", "");
     var d = new Date(main),
@@ -60,22 +71,34 @@ export default function Upcoming() {
   }
   const updateBooking = async (id) => {
     await bookingServices.updatebooking(id, {
-      status: "3",
-      canceledBy: "Client",
+      status: "2",
+      canceledBy: "Owner",
     });
     setServices(service.filter((val) => val._id != id));
 
     alert("Booking canceled");
   };
+  const updateBookings = async (id) => {
+    await bookingServices.updatebooking(id, {
+      status: "1",
+      canceledBy: "Owner",
+    });
+    
+
+    alert("Booking Approved");
+  };
   const move = () => {
     navigation.navigate("Business Dashboard");
   };
   const view = (val) => {
+     
     setval(val);
+    showModal()
   };
   return (
-    <SafeAreaView style={{}}>
       <Provider>
+    <SafeAreaView style={{}}>
+
         <View
           style={{
             display: "flex",
@@ -95,14 +118,17 @@ export default function Upcoming() {
               marginBottom: "30px",
             }}
           >
-            {service.map((val) => (
+          
               <List.Section>
                 <List.Subheader>All Upcoming Bookings</List.Subheader>
+                {service.map((val) => (
+                  <View>
+
                 <List.Item
                   left={() => (
                     <View>
                       <Text>{val?.ServiceId?.name}</Text>
-                      <Text>{val.OwnerId?.name}</Text>
+                      <Text>{val.UserId?.name}</Text>
                       <Text style={{ fontSize: "12px" }}>
                         {" "}
                         Date:{val.Date}{" "}
@@ -136,29 +162,42 @@ export default function Upcoming() {
                       >
                         Cancel
                       </Button>
+                      <Button
+                        mode="contained"
+                        style={{ backgroundColor: "#FF69B4" }}
+                        onPress={() => updateBookings(val._id)}
+                      >
+                        updateBookings
+                      </Button>
+                      
                     </View>
-                  )}
-                />
+                  )} />
+                  </View>
+                  ))}
               </List.Section>
-            ))}
-            <Portal>
-              <Modal
-                visible={visible}
-                onDismiss={hideModal}
-                contentContainerStyle={containerStyle}
-              >
-                <Text>name:${val.UserId?.name}</Text>
-                <Text>email:${val.UserId?.email}</Text>
-                <Text>Price:${val.Price}</Text>
-                <Text>Building:${val.Building}</Text>
-                <Text>Address:${val.Address}</Text>
-                <Text>City:${val.City}</Text>
-                <Text>Message:${val.Message}</Text>
-              </Modal>
-            </Portal>
+    
+              <Portal>          
+ <Modal
+  visible={visible}
+  onDismiss={hideModal}
+  contentContainerStyle={containerStyle}
+>
+  <Text>Detail:</Text>
+  <Text>name:{val.UserId?.name}</Text>
+  <Text>email:{val.UserId?.email}</Text>
+  <Text>Price:{val.Price}</Text>
+  <Text>Building:{val.Building}</Text>
+  <Text>Address:{val.Address}</Text>
+  <Text>City:{val.City}</Text>
+  <Text>Message:{val.Message}</Text>
+</Modal>
+</Portal>
+
           </Card>
         </View>
-      </Provider>
+    
     </SafeAreaView>
+    </Provider>
   );
 }
+

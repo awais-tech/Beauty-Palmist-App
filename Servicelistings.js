@@ -76,6 +76,14 @@ export default function ServiceListings({route}) {
          
         }
       };
+      const find = (value) => {
+        setService(
+          ori.filter((fil) =>
+            fil.name.toUpperCase().includes(value.toUpperCase())
+          )
+        );
+        setSearchQuery(value)
+      };
     return (
         <SafeAreaView>
             <View style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100%', backgroundColor: '#fff4f4' }}>
@@ -84,15 +92,16 @@ export default function ServiceListings({route}) {
                         <Text style={{ fontSize: '24px', fontWeight: 'bold', backgroundColor: 'white', padding: '10px' }}>Selected Category Services</Text>
                     </View>
                 </ImageBackground>
+
                 <Searchbar
                     placeholder="Search Service"
-                    onChangeText={onChangeSearch}
+                    onChangeText={find}
                     value={searchQuery}
                     style={{ marginBottom: '20px', width: '80%' }}
                 />
-                 {ori.length > 0 ? (
+                 {subCat.length > 0 ? (
            
-                ori.map((val) => (
+                subCat.map((val) => (
                 <Card style={{ padding: '40px', borderRadius: '2px', width: '90%', borderColor: '#6804ec', borderWidth: 2, marginBottom: '20px' }}>
                 <TouchableOpacity onPress={()=>move(val)}>
                     <View style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>

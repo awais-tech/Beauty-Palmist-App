@@ -16,7 +16,7 @@ export default function Choosebookingoptions() {
             <Card style={{ padding: '40px', borderRadius: '20px', width: '90%' }}>
                 <Text style={{ fontWeight: 'bold', textAlign: 'center', marginBottom: '30px', fontSize: '24px' }}>Bookings</Text>
                 <Button style={{ marginBottom: '30px', backgroundColor: '#FF69B4' }} mode="contained" onPress={() => move()}>Booking Schedule</Button>
-                <Button style={{ marginBottom: '30px', backgroundColor: '#FF69B4' }} mode="contained" onPress={() => moves()}>Booking Mode</Button>
+                {/* <Button style={{ marginBottom: '30px', backgroundColor: '#FF69B4' }} mode="contained" onPress={() => moves()}>Booking Mode</Button> */}
             </Card>
         </View>
     );

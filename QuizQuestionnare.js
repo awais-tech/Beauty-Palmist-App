@@ -12,11 +12,13 @@ import * as React from "react";
 import quizAnswer from "./Services/services/quizAnswer";
 import quizs from "./Services/services/quiz";
 import beautyService from "./Services/services/Servicesbeauty";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function PalmistQuiz({ route }) {
   const [value, setValue] = React.useState("first");
   const val = route.params.val;
-  console.log(val);
+  const all=route.params;
+  console.log(all);
   const [ans, setAns] = React.useState([]);
 
   const [quiz, setQuiz] = React.useState([]);
@@ -32,9 +34,10 @@ export default function PalmistQuiz({ route }) {
   }, []);
   const getcate = async () => {
     try {
+       const user= JSON.parse(await AsyncStorage.getItem("user"));
       setloading(true);
-      let result = await quizs.getQuiz(val._id);
-      console.log(result);
+      let result = await quizs.getQuiz(user?.role === "bussness" ?all.sub:val._id);
+
       setQuiz(result.quiz);
       setloading(false);
     } catch (e) {
@@ -44,8 +47,59 @@ export default function PalmistQuiz({ route }) {
   };
   const navigation = useNavigation();
 
-  const move = () => {
+  const move = async() => {
+    const user= JSON.parse(await AsyncStorage.getItem("user"));
+    const userinfo= JSON.parse(await AsyncStorage.getItem("userinfo"));
+    if (user?.role === "bussness") {
+        const formData = new FormData();
+
+        formData.append("name", all.values.ServiceName);
+
+        formData.append("categoryId", userinfo.categoryId?._id);
+        formData.append("subCategoryId",  all.sub);
+        formData.append("userid", user.id);
+        formData.append("serviceCode",  all.values.ServiceCode);
+        formData.append("detail", all.values.ServiceDescription);
+        formData.append("Price", all.values.Price);
+        const blob = await new Promise((resolve, reject) => {
+            const xhr = new XMLHttpRequest();
+            xhr.onload = function () {
+              resolve(xhr.response);
+            };
+            xhr.onerror = function (e) {
+              console.log(e);
+              reject(new TypeError("Network request failed"));
+            };
+            xhr.responseType = "blob";
+            xhr.open("GET", all.image, true);
+            xhr.send(null);
+          });
+        formData.append("image",blob);
+        formData.append("ServiceType",all.price);
+        formData.append("BussnesId",userinfo._id);
+        formData.append("address",userinfo.address);
+
+        const config = {
+          headers: {
+            "content-type": "multipart/form-data",
+          },
+        };
+        beautyService.addBussness(formData, config).then((val) => {
+          quizAnswer
+            .createAnswer({
+              Answer: ans,
+              ServiceId: val.userServices._id,
+
+              SubCategoryId:  all.sub,
+            })
+            .then((value) => {
+              alert("Service is added");
+              navigation.navigate("Manage Services");
+            });
+        });
+      } else {
     navigation.navigate("ServiceListings",{ans,check:true,val:route.params.val});
+      }
   };
   const save = (name, value) => {
     if (ans.findIndex((val) => val.name === name) === -1) {
@@ -161,7 +215,8 @@ export default function PalmistQuiz({ route }) {
             style={{ marginTop: "20px", backgroundColor: "#FF69B4" }}
             onPress={() => move()}
           >
-            View Recommendations
+            {all.sub ? "Submit" : " View Recommendations"}
+        
           </Button>
         </Card>
       </View>
