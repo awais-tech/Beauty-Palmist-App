@@ -7,7 +7,7 @@ import {
   ImageBackground,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { ErrorMessage, Formik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
@@ -27,19 +27,25 @@ export default function Clientlogin() {
         password: values.password,
       })
       .then(async (data) => {
-        navigation.navigate("Home");
-        await AsyncStorage.setItem('Token', data.data.token);
-        const user = JSON.stringify(data.data)
-        await AsyncStorage.setItem('user', user);
+        console.log(data);
+        if (data.data.role != "bussness") {
+          if (data.data.active != false) {
+            navigation.navigate("Home");
+            await AsyncStorage.setItem("Token", data.data.token);
+            const user = JSON.stringify(data.data);
+            await AsyncStorage.setItem("user", user);
 
-
-     
-        alert("Login successfully!");
+            alert("Login successfully!");
+          } else {
+            alert("Please verify your email for login");
+          }
+        } else {
+          alert(
+            "You are not registered as a Client please login through Business Login"
+          );
+        }
       })
       .catch((e) => {
-        navigation.navigate("Home");
-        console.log(e.response.data.error);
-      
         alert(e.response.data.error);
       });
   };
@@ -92,37 +98,39 @@ export default function Clientlogin() {
               password: Yup.string().required("Password is required"),
             })}
             onSubmit={handleFormSubmit}
-            initialValues={{ email: "vegestad@nproxi.com", password: "Minahil123@" }}
+            initialValues={{
+              email: "vegestad@nproxi.com",
+              password: "Minahil123@",
+            }}
           >
-              {({ handleChange, handleBlur, handleSubmit, values }) => (
-                <View>
-            <TextInput
-              placeholder="Email"
-              style={styles.Textfields}
-              onChangeText={handleChange("email")}
-              onBlur={handleBlur("email")}
-              value={values.email}
-            ></TextInput>
-            <ErrorMessage name="email" />
-            <TextInput
-          
-              placeholder="Password"
-              style={styles.Textfields}
-              value={values.password}
-              onChangeText={handleChange("password")}
-              onBlur={handleBlur("password")}
-            ></TextInput>
-            <ErrorMessage name="password" />
+            {({ handleChange, handleBlur, handleSubmit, values }) => (
+              <View>
+                <TextInput
+                  placeholder="Email"
+                  style={styles.Textfields}
+                  onChangeText={handleChange("email")}
+                  onBlur={handleBlur("email")}
+                  value={values.email}
+                ></TextInput>
+                <ErrorMessage name="email" />
+                <TextInput
+                  placeholder="Password"
+                  style={styles.Textfields}
+                  value={values.password}
+                  onChangeText={handleChange("password")}
+                  onBlur={handleBlur("password")}
+                ></TextInput>
+                <ErrorMessage name="password" />
 
-            <Button
-              style={{ marginBottom: "20px", backgroundColor: "#FF69B4" }}
-              mode="contained"
-              onPress={() => handleSubmit()}
-            >
-              Login
-            </Button>
-            </View>
-              )}
+                <Button
+                  style={{ marginBottom: "20px", backgroundColor: "#FF69B4" }}
+                  mode="contained"
+                  onPress={() => handleSubmit()}
+                >
+                  Login
+                </Button>
+              </View>
+            )}
           </Formik>
           <Text style={{ textAlign: "center", marginBottom: "10px" }}>
             Don't have an account?

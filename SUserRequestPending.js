@@ -15,84 +15,39 @@ import {
   ImageBackground,
   SafeAreaView,
 } from "react-native";
-import { Rating, AirbnbRating } from "react-native-ratings";
-import { useNavigation } from "@react-navigation/native";
-import * as React from "react";
 import moment from "moment";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useNavigation } from "@react-navigation/native";
+
+import * as React from "react";
 import bookingServices from "./Services/services/booking";
 
-export default function UserHistory() {
+export default function SUserRequestPending() {
   const navigation = useNavigation();
-  const get = (vals) => {
-    console.log(review.some((val) => val.ServiceId == vals));
-    return review.some((val) => val.BookId == vals);
-  };
   const [searchQuery, setSearchQuery] = React.useState("");
-  const [visible, setVisible] = React.useState(false);
+  const onChangeSearch = (query) => setSearchQuery(query);
   const [val, setval] = React.useState({});
+  const [service, setServices] = React.useState([]);
+  const [visible, setVisible] = React.useState(false);
+
   const showModal = () => setVisible(true);
   const hideModal = () => setVisible(false);
-  const showModal2 = () => setVisible2(true);
-  const [visible2, setVisible2] = React.useState(false);
-  const hideModal2 = () => setVisible2(false);
-  const [comment, setComment] = React.useState("");
-  const [rating,setRating]=React.useState(0);
   const containerStyle = { backgroundColor: "white", padding: 20 };
-  const onChangeSearch = (query) => setSearchQuery(query);
-
-  const [service, setServices] = React.useState([]);
-  
-
-  
-  const [review, setReview] = React.useState([]);
 
   React.useEffect(() => {
     booking();
   }, []);
-
   const booking = async () => {
     const user = await AsyncStorage.getItem("user");
     const userInfo = JSON.parse(user);
     bookingServices.getBooking(userInfo.id).then((val) => {
       console.log(val);
-      setServices(
-        val.Booking.filter(
-          (val) =>
-            val.status == 4 &&
-            moment(formatDate(val.Date))
-              .startOf("day")
-              .fromNow()
-              .includes("ago")
-        )
-      );
+
+      setServices(val.Booking.filter((val) => val.status == 0));
       console.log(formatDate("May 11th 14"));
     });
   };
-const ratingpress=async()=>{
-  const user = await AsyncStorage.getItem("user");
-  const userInfo = JSON.parse(user);
-  bookingServices
-      .createReview({
-        comment: comment,
-        rating: rating,
 
-        ServiceId: val.ServiceId._id,
-        BookId: val._id,
-        UserId: userInfo._id,
-      }).then((val)=>{
-        alert("Feedback added")
-        hideModal2();
-      })
-}
-React.useEffect(() => {
-  if (service.length > 0) {
-    console.log(service);
-    bookingServices.getReviews().then((val) => {
-      setReview(val.Reviews);
-    });
-  }
-}, [service]);
   function formatDate(date) {
     let main = date.replace("th", "");
     var d = new Date(main),
@@ -105,11 +60,15 @@ React.useEffect(() => {
 
     return [year, month, day].join("-");
   }
-  const ratingCompleted = (rating) => {
-    console.log("Rating is: " + rating);
-    setRating(rating);
-  };
+  const updateBooking = async (id) => {
+    await bookingServices.updatebooking(id, {
+      status: "3",
+      canceledBy: "Client",
+    });
+    setServices(service.filter((val) => val._id != id));
 
+    alert("Booking canceled");
+  };
   const move = () => {
     navigation.navigate("Business Dashboard");
   };
@@ -117,9 +76,11 @@ React.useEffect(() => {
     setval(val);
     showModal();
   };
-  const view2 = (val) => {
-    setval(val);
-    showModal2();
+  const updateBookings = async (id) => {
+    await bookingServices.updatebooking(id, {
+      status: "1",
+      canceledBy: "Owner",
+    });
   };
   return (
     <Provider>
@@ -144,7 +105,7 @@ React.useEffect(() => {
             }}
           >
             <List.Section>
-              <List.Subheader>History Bookings</List.Subheader>
+              <List.Subheader>Request Bookings</List.Subheader>
               {service.map((val) => (
                 <View>
                   <List.Item
@@ -180,16 +141,23 @@ React.useEffect(() => {
                         >
                           View
                         </Button>
-                       { !get(val?._id) &&<Button
+                        <Button
                           mode="contained"
                           style={{
                             marginBottom: "5px",
                             backgroundColor: "#FF69B4",
                           }}
-                          onPress={() => view2(val)}
+                          onPress={() => updateBookings(val._id, 1)}
                         >
-                          Feedback
-                        </Button>}
+                          Approve
+                        </Button>
+                        <Button
+                          mode="contained"
+                          style={{ backgroundColor: "#FF69B4" }}
+                          onPress={() => updateBooking(val._id)}
+                        >
+                          Cancel
+                        </Button>
                       </View>
                     )}
                   />
@@ -213,66 +181,9 @@ React.useEffect(() => {
                 <Text>Message:{val.Message}</Text>
               </Modal>
             </Portal>
-
-            <Portal>
-              <Modal
-                visible={visible2}
-                onDismiss={hideModal2}
-                contentContainerStyle={containerStyle}
-              >
-                <Rating
-                  type="heart"
-                  ratingCount={5}
-                  imageSize={60}
-                  showRating
-                  onFinishRating={ratingCompleted}
-                />
-                 <TextInput
-                value={comment}
-            placeholder="comment"
-            onChangeText={(text)=>setComment(text)}
-            style={styles.AboutTextfield}
-          ></TextInput>
-            <Button
-                          mode="contained"
-                          style={{
-                            marginBottom: "5px",
-                            backgroundColor: "#FF69B4",
-                          }}
-                          onPress={() => ratingpress(val)}
-                        >
-                          Submit
-                        </Button>
-              </Modal>
-            </Portal>
           </Card>
         </View>
       </SafeAreaView>
     </Provider>
   );
 }
-const styles = StyleSheet.create({
-  socialbuttonfb: {
-    borderRadius: "20px",
-    backgroundColor: "#4267B2",
-    marginBottom: "20px",
-  },
-  socialbuttontw: {
-    borderRadius: "20px",
-    backgroundColor: "#1DA1F2",
-    marginBottom: "20px",
-  },
-  AboutTextfield: {
-    height: "200px",
-    borderRadius: "20px",
-    borderColor: "grey",
-    padding: "10px",
-    marginBottom: "20px",
-  },
-  Textfields: {
-    borderRadius: "20px",
-    borderColor: "grey",
-    padding: "10px",
-    marginBottom: "20px",
-  },
-});

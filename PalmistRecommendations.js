@@ -2,6 +2,7 @@ import { Avatar, Button, Card, Appbar, Searchbar } from 'react-native-paper';
 import { StyleSheet, Text, View, TextInput, Drawer, ImageBackground, SafeAreaView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import * as React from 'react';
+import { ScrollView } from 'react-native-web';
 
 export default function Recommendations() {
     const [searchQuery, setSearchQuery] = React.useState('');
@@ -13,6 +14,7 @@ export default function Recommendations() {
     }
     return (
         <SafeAreaView>
+             <ScrollView>
             <View style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100%', backgroundColor: '#fff4f4' }}>
                 <ImageBackground source={'https://static.wixstatic.com/media/11c705_d25335dd907d40e295d469d81fdcb2f3~mv2.jpg/v1/fill/w_980,h_206,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/11c705_d25335dd907d40e295d469d81fdcb2f3~mv2.jpg'} style={{ width: '100%', height: '80px', margin: '30px', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
                     <View style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
@@ -82,6 +84,7 @@ export default function Recommendations() {
                     </View>
                 </Card>
             </View>
+            </ScrollView>
         </SafeAreaView>
     );
 }

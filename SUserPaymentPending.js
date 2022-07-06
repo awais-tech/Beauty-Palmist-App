@@ -23,7 +23,7 @@
       import * as React from "react";
       import bookingServices from "./Services/services/booking";
       
-      export default function UserPaymentPending() {
+      export default function SUserPaymentPending() {
         const navigation = useNavigation();
         const [searchQuery, setSearchQuery] = React.useState("");
         const onChangeSearch = (query) => setSearchQuery(query);
@@ -39,6 +39,14 @@
         const showModal = () => setVisible(true);
         const hideModal = () => setVisible(false);
         const containerStyle = {backgroundColor: 'white', padding: 20};
+        const updateBookings = async (id, value) => {
+          await bookingServices.updatebooking(id, {
+            status: value,
+            canceledBy: "Owner",
+          });
+    
+         alert(`Booking Booked`);
+        };
         const pickImage = async () => {
             // No permissions request is necessary for launching the image library
             let result = await ImagePicker.launchImageLibraryAsync({
@@ -195,8 +203,7 @@
                             >
                               Cancel
                             </Button>
-                           
-                 {val.PaymentStatus==0&& 
+             
                  <View>   
                   <Button
                       style={{
@@ -204,24 +211,15 @@
                         backgroundColor: "#FF69B4",
                       }}
                       mode="contained"
-                      onPress={()=>pickImage(val._id)}
+                      onPress={()=>updateBookings(val._id, 4)}
                     >
-                     Payment Screenshot
+                     Approve Payment
                     </Button>
 
-                    <Button
-                      style={{
-                        marginTop: "20px",
-                        backgroundColor: "#FF69B4",
-                      }}
-                      mode="contained"
-                      onPress={()=>payment(val._id)}
-                    >
-                     Submit
-                    </Button>
+                   
               
                     </View>
-                      }
+                  
                    
                  
                           </View>

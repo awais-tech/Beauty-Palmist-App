@@ -12,6 +12,7 @@ import bookingServices from './Services/services/booking';
 export default function AddCalenderMethodDetails({route}) {
     const navigation = useNavigation();
     const [user,setUser]=React.useState();
+    
 const val=route.params;
     const move = () => {
         navigation.navigate('Payment Information')

@@ -93,7 +93,7 @@ const [val,setval]=React.useState({});
                 >
                 
                     <List.Section>
-                      <List.Subheader>All Upcoming Bookings</List.Subheader>
+                      <List.Subheader>Rejected Bookings</List.Subheader>
                       {service.map((val) => (
                         <View>
     

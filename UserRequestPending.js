@@ -102,7 +102,7 @@ import {
             >
             
                 <List.Section>
-                  <List.Subheader>All Upcoming Bookings</List.Subheader>
+                  <List.Subheader>Request Bookings</List.Subheader>
                   {service.map((val) => (
                     <View>
 

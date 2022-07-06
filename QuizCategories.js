@@ -1,5 +1,5 @@
 import { Button, Card, List } from 'react-native-paper';
-import { StyleSheet, Text, View, TextInput, ImageBackground } from 'react-native';
+import { StyleSheet, Text, View, TextInput, ImageBackground, ScrollView } from 'react-native';
 import * as React from 'react';
 import { useNavigation } from '@react-navigation/native';
 import SubCategory from './Services/services/subCategorybyCategory';
@@ -40,6 +40,7 @@ const [loading,setloading]=React.useState();
       };
     const handlePress = () => setExpanded(!expanded);
     return (
+      <ScrollView>
         <View style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100%', backgroundColor: '#ffe4e4'}}>
             <Card style={{ padding: '40px', borderRadius: '20px', width: '90%', backgroundColor: '#f8ecec' }}>
             {Object.entries(subCat).map(([k, v]) => (
@@ -62,6 +63,7 @@ const [loading,setloading]=React.useState();
                 ))}
             </Card>
         </View>
+        </ScrollView>
     );
 }
 

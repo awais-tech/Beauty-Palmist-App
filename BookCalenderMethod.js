@@ -2,6 +2,7 @@ import { Avatar, Button, Card, Title, Divider } from 'react-native-paper';
 import { StyleSheet, Text, View, TextInput } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import React, { useState } from 'react';
+import DropDownPicker from "react-native-dropdown-picker";
 import { SafeAreaView } from 'react-native-web';
 
 import DatePicker from "sassy-datepicker";
@@ -14,19 +15,39 @@ export default function CalenderMethod({route}) {
     const [date, setDate] = useState(new Date())
     const [open, setOpen] = useState(false)
     const [value, setdats] = useState(new Date());
+    const [values, setValue] = useState();
     const [timer, changeTime] = useState("No Select");
     const [book, setBook] = React.useState([]);
+    
     const [time, setTime] = React.useState([
-      "10:00 am",
-      "11:00 am",
-      "12:00 pm",
-      "1:00 pm",
-      "2:00 pm",
-      "3:00 pm",
-      "4:00 pm",
-      "5:00 pm",
-      "6:00 pm",
-      "7:00 pm",
+      { label: "10:00 am", value: "10:00 am" },
+      { label: "11:00 am", value: "11:00 am" },
+      { label: "12:00 pm", value: "12:00 pm" },
+      { label: "1:00 pm", value: "1:00 pm" },
+      { label: "2:00 pm", value: "2:00 pm" },
+      { label: "3:00 pm", value: "3:00 pm" },
+      { label: "4:00 pm", value: "4:00 pm" },
+      { label: "5:00 pm", value: "5:00 pm" },
+      { label: "6:00 pm", value: "6:00 pm" },
+
+      { label: "7:00 pm", value: "7:00 pm" },
+      { label: "8:00 pm", value: "8:00 pm" },
+      { label: "9:00 pm", value: "9:00 pm" },
+      { label: "10:00 pm", value: "10:00 pm" },
+      { label: "11:00 pm", value: "11:00 am" },
+      { label: "12:00 am", value: "12:00 am" },
+      { label: "1:00 am", value: "1:00 am" },
+      { label: "2:00 am", value: "2:00 am" },
+      { label: "3:00 am", value: "3:00 am" },
+      { label: "4:00 am", value: "4:00 am" },
+      { label: "5:00 am", value: "5:00 am" },
+      { label: "6:00 am", value: "6:00 am" },
+      { label: "7:00 am", value: "7:00 am" },
+      { label: "8:00 am", value: "8:00 am" },
+      { label: "9:00 am", value: "9:00 am" },
+  
+
+     
     ]);
     const [oriTime, setOriTime] = React.useState([
       "10:00 am",
@@ -57,9 +78,9 @@ export default function CalenderMethod({route}) {
       const saveTime = (t) => {
         changeTime(t);
       };
-      React.useEffect(() => {
-        setTime(oriTime.filter((val) => !book.includes(val)));
-      }, [value]);
+      // React.useEffect(() => {
+      //   setTime(oriTime.filter((val) => !book.includes(val)));
+      // }, [values]);
       React.useEffect(() => {
         // bookingServices.serviceBookings("1").then((val) => {
         //   setBook(val.Booking);
@@ -69,7 +90,7 @@ export default function CalenderMethod({route}) {
     const move=()=>{
 
         navigation.navigate('Add details',{val:val,  date: moment(value).format("Do MMM YYYY"),
-        timer,})
+        values,})
       }
     return (
         <SafeAreaView>
@@ -83,24 +104,49 @@ export default function CalenderMethod({route}) {
                     <DatePicker
                   onChange={setdates}
                   selected={value}
-                  minDate={new Date(Date.now())}
+                  minDate={new Date(Date.now()-86400000)}
+                  
                 />
 
-{time.length > 0 &&
+{/* {time.length > 0 &&
                     time.map((val, index) => (
                 
                        <Button mode='contained' style={{ backgroundColor: '#FF69B4', marginBottom: '20px' }}   onPress={() => saveTime(val)}>     {val}</Button>
                      
                   
                  
-                    ))}
+                    ))} */}
+                      <View style={{ marginBottom: "200px" }}>
+                  <Text style={{ fontWeight: "bold", color: "#9c8cbc" }}>
+                    Select your Service Time
+                  </Text>
+                  <DropDownPicker
+                    open={open}
+                    value={values}
+                    items={time}
+                    setOpen={setOpen}
+                    setValue={setValue}
+                    setItems={setTime}
+                    theme="DARK"
+                    mode="BADGE"
+                    badgeDotColors={[
+                      "#e76f51",
+                      "#00b4d8",
+                      "#e9c46a",
+                      "#e76f51",
+                      "#8ac926",
+                      "#00b4d8",
+                      "#e9c46a",
+                    ]}
+                  />
+                </View>
                    
 
                     <Card style={{ padding: '40px', borderRadius: '20px', width: '100%', backgroundColor: '#f8ecec', marginBottom: '20px' }}>
                         <Text style={{ fontSize: '22px', fontWeight: 'bold', marginBottom: '10px' }}>Booking Summary</Text>
                         <Divider />
                         <Text style={{ fontSize: '18px', marginBottom: '5px', marginTop: '5px' }}>{val.name}</Text>
-                        <Text style={{ fontSize: '18px', marginBottom: '5px' }}>{moment(value).format("Do MMM YYYY")}  {timer}</Text>
+                        <Text style={{ fontSize: '18px', marginBottom: '5px' }}>{moment(value).format("Do MMM YYYY")}  {values}</Text>
         
                         <Text style={{ fontSize: '18px', marginBottom: '5px' }}>1 hr</Text>
                         <Text style={{ fontSize: '18px', marginBottom: '5px' }}>Rs, {val.Price}</Text>

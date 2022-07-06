@@ -25,7 +25,7 @@ export default function BusinessLogin() {
   const handleFormSubmit = async (values, { setSubmitting }) => {
     try {
       const data = await UerServices.login(values.email, values.password);
-    
+    if(data.active != false){
         if (data.status == 0) {
           bussnessServices.getBussness(data.id).then(async (value) => {
             alert(data.message);
@@ -38,15 +38,19 @@ export default function BusinessLogin() {
             
           });
         } 
-        // else if (data.status == 0) {
-        //   UerServices.logout();
-
-        //   alert(
-        //     "Your Application is Not Apporved Yet or You are not Registered as A bussnessUser"
-        //   );
-        // } 
+        else if (data.status == 0) {
+         
+          alert(
+            "Your Application is Not Apporved Yet or You are not Registered as A bussnessUser"
+          );
+        } else {
+       
+          alert("Your Application is disapproved Please Contact Admin ");
+        }
+      }
+  
         else {
-          UerServices.logout();
+        
           alert("Your Application is disapproved Please Contact Admin ");
         }
       

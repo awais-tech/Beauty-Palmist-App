@@ -5,6 +5,7 @@ import * as React from 'react';
 
 export default function Home() {
     const navigation = useNavigation();
+    
     const move = () => {
         navigation.navigate('Choose Service')
     }
@@ -14,6 +15,9 @@ export default function Home() {
     const movess = () => {
         navigation.navigate('Your Bookings')
     }
+    const mov = () => {
+        navigation.navigate('Trending')
+    }
     return (
         <SafeAreaView>
         <View style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100%', backgroundColor: '#fff4f4' }}>
@@ -21,10 +25,7 @@ export default function Home() {
                 <Text style={{ fontSize: '44px', fontWeight: 'bold', marginTop: '30px', marginLeft: '20px', textAlign: 'left', color: '#FF69B4' }}>Explore,</Text>
                 <Text style={{ fontSize: '44px', fontWeight: 'bold', marginTop: '-10px', marginLeft: '20px', textAlign: 'left', }}>Beauty Palmist</Text>
                 <View style={{ marginTop: '20px', padding: '30px' }}>
-                <Card style={{ padding: '40px', borderRadius: '20px', width: '100%', marginBottom: '30px' }}>
-                        <Image source={require('./assets/trending.gif')} style={{width: '100%', height: '300px'}}></Image>
-                        <Button mode='contained' style={{ backgroundColor: '#FF69B4' }}>Trending</Button>
-                    </Card>
+             
                     <Card style={{ padding: '40px', borderRadius: '20px', width: '100%', marginBottom: '30px' }}>
                         <Image source={require('./assets/service.gif')} style={{width: '100%', height: '300px'}}></Image>
                         <Button mode='contained' style={{ backgroundColor: '#FF69B4' }} onPress={() => { move() }}>Services</Button>
@@ -36,6 +37,10 @@ export default function Home() {
                     <Card style={{ padding: '40px', borderRadius: '20px', width: '100%' }}>
                     <Image source={require('./assets/booking.gif')} style={{width: '100%', height: '300px'}}></Image>
                         <Button mode='contained' textColor='black' style={{ backgroundColor: '#FF69B4' }} onPress={() => { movess() }}>Your Bookings</Button>
+                    </Card>
+                    <Card style={{ padding: '40px', borderRadius: '20px', width: '100%', marginBottom: '30px' }}>
+                        <Image source={require('./assets/trending.gif')} style={{width: '100%', height: '300px'}}></Image>
+                        <Button mode='contained' style={{ backgroundColor: '#FF69B4' }}  onPress={() => { mov() }}>Trending</Button>
                     </Card>
                 </View>
             </ImageBackground>

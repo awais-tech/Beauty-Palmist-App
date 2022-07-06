@@ -27,6 +27,8 @@ export default function ServiceListings({route}) {
     const move = (val) => {
         navigation.navigate('ServiceDetailPage',{val:val})
     }
+
+    
     React.useEffect(() => {
 
         if (route.params.check) {

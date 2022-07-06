@@ -45,6 +45,11 @@ import UserRejected from "./UserRejectedBookings";
 import PendingBookingSelectionPage from "./PendingBookingSelection";
 import UserRequestPending from "./UserRequestPending";
 import UserPaymentPending from "./UserPaymentPending";
+import Trending from "./Trending";
+import SUserRequestPending from "./SUserRequestPending";
+import SUserPaymentPending from "./SUserPaymentPending";
+import EditServiceform from "./EditForm";
+import CProfile from "./CProfile";
 const Stack = createNativeStackNavigator();
 
 
@@ -193,6 +198,43 @@ export default function App() {
           component={BusinessDashboard}
 
         />
+         <Stack.Screen
+          screenOptions={{
+            headerShown: false
+          }}
+
+          name="SUserRequestPending"
+          component={SUserRequestPending}
+
+        />
+           <Stack.Screen
+          screenOptions={{
+            headerShown: false
+          }}
+
+          name="EditServiceform"
+          component={EditServiceform}
+
+        />
+        
+         <Stack.Screen
+          screenOptions={{
+            headerShown: false
+          }}
+
+          name="Edit"
+          component={SUserRequestPending}
+
+        />
+          <Stack.Screen
+          screenOptions={{
+            headerShown: false
+          }}
+
+          name="SUserPaymentPending"
+          component={SUserPaymentPending}
+
+        />
         <Stack.Screen
        
 
@@ -308,6 +350,16 @@ export default function App() {
           component={Bookingmode}
 
         />
+          <Stack.Screen
+          screenOptions={{
+            headerShown: false
+          }}
+
+          name="CProfile"
+          component={CProfile}
+
+        />
+        
         <Stack.Screen
           screenOptions={{
             headerShown: false
@@ -363,6 +415,13 @@ export default function App() {
           }}
           name="Payment Pending"
           component={UserPaymentPending}
+        />
+            <Stack.Screen
+          screenOptions={{
+            headerShown: false
+          }}
+          name="Trending"
+          component={Trending}
         />
 
 

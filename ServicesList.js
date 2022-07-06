@@ -13,6 +13,10 @@ export default function ServiceList() {
     const move = (val) => {
         navigation.navigate('ServiceDetailPage',{val:val})
     }
+    const moves = (val) => {
+      
+        navigation.navigate('EditServiceform',{val:val})
+    }
     const serviceformr = () => {
         navigation.navigate('Add Service Form')
     }
@@ -85,14 +89,14 @@ export default function ServiceList() {
                     <Button mode='contained' style={{backgroundColor: '#FF69B4', margin: '30px'}} onPress={()=>serviceformr()}>New Service</Button>
                     </View>
                     {subCat.map((ori, index) => (
-                <Card style={{ padding: '40px', borderRadius: '2px', width: '90%', borderColor: '#6804ec', borderWidth: 2, marginBottom: '20px' }}>
+                <Card style={{ padding: '20px', borderRadius: '2px', width: '90%', borderColor: '#6804ec', borderWidth: 2, marginBottom: '20px' }}>
                     <View style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
                         <Text style={{ fontSize: '24px', fontWeight: 'bold', fontStyle: 'italic', marginBottom: '20px' }}>{ori?.name}</Text>
-                        <Text style={{ fontSize: '20px', marginBottom: '20px' }}>/ Rating: 3.0</Text>
+               
                         <Button mode="outlined" style={{ marginTop: '20px' }} onPress={() => move(ori)}>
                             View Service
                         </Button>
-                        <Button mode="outlined" style={{ marginTop: '20px' }}>
+                        <Button mode="outlined" style={{ marginTop: '20px' }} onPress={() => moves(ori)}>
                             Edit Service
                         </Button>
                         <Button mode="outlined" style={{ marginTop: '20px' }} onPress={()=>remove(ori._id)}>
