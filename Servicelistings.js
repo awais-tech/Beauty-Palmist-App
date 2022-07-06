@@ -104,7 +104,7 @@ export default function ServiceListings({route}) {
                  {subCat.length > 0 ? (
            
                 subCat.map((val) => (
-                <Card style={{ padding: '40px', borderRadius: '2px', width: '90%', borderColor: '#6804ec', borderWidth: 2, marginBottom: '20px' }}>
+                <Card style={{ padding: '20px', borderRadius: '2px', width: '90%', borderColor: '#6804ec', borderWidth: 2, marginBottom: '20px' }}>
                 <TouchableOpacity onPress={()=>move(val)}>
                     <View style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
                         <Text style={{ fontSize: '24px', fontWeight: 'bold', fontStyle: 'italic', marginBottom: '20px' }}>{val.name}</Text>
