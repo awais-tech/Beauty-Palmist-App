@@ -65,8 +65,8 @@ export default function Trending({ route }) {
       ).map((val) => val.ServiceId._id);
 
       if (ids.length > 0) {
-        setService(result.userServices.filter((val) => val._id.includes(ids)));
-        setOri(result.userServices.filter((val) => val._id.includes(ids)));
+        setService(result.userServices.filter((val) => ids.includes(val._id)));
+        setOri(result.userServices.filter((val) => ids.includes(val._id)));
       }
       setloading(false);
     } catch (e) {

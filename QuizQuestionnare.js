@@ -94,7 +94,7 @@ export default function PalmistQuiz({ route }) {
             })
             .then((value) => {
               alert("Service is added");
-              navigation.navigate("Manage Services");
+              navigation.navigate("Business Dashboard");
             });
         });
       } else {
